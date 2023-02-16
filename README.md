@@ -1,5 +1,5 @@
 # Monthly Expenses Database
-This repository contains the Liquibase changelogs for the Monthly Expenses database.
+This repository contains the Liquibase scripts for versioning and managing the database schema changes for the Monthly Expenses application.
 
 ### Installation and Usage
 1.  Clone the repository:
