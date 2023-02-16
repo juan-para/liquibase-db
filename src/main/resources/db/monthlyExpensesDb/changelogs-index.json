@@ -1,0 +1,15 @@
+{
+  "databaseChangeLog": [
+    {
+      "comment": "Sprint 1 - The creation of the first couple of tables"
+    },
+    {
+      "include": {
+        "file": "tables/changelogs/SP1/changelogs-sprint-index.json",
+        "relativeToChangelogFile": true
+      }
+    }
+  ]
+}
+
+

@@ -1,0 +1,22 @@
+{
+  "databaseChangeLog": [
+    {
+      "comment": "Creation of the Person table"
+    },
+    {
+      "include": {
+        "file": "14022023-CreateTable-Person.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "comment": "Creation of the Car table"
+    },
+    {
+      "include": {
+        "file": "14022023-CreateTable-Car.json",
+        "relativeToChangelogFile": true
+      }
+    }
+  ]
+}
