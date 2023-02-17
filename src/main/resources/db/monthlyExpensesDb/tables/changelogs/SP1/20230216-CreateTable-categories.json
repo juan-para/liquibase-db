@@ -1,0 +1,49 @@
+{
+  "databaseChangeLog": [
+    {
+      "preConditions": [
+        {
+          "not": {
+            "tableExists": {
+              "tableName": "categories"
+            }
+          }
+        }
+      ],
+      "changeSet": {
+        "id": "SP1 - create table categories",
+        "author": "juan-para",
+        "comment": "create table categories",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "categories",
+              "columns": [
+                {
+                  "column": {
+                    "name": "category_id",
+                    "type": "INT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

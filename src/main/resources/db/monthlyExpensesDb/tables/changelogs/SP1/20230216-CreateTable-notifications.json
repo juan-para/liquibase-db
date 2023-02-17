@@ -1,0 +1,149 @@
+{
+  "databaseChangeLog": [
+    {
+      "preConditions": [
+        {
+          "not": {
+            "tableExists": {
+              "tableName": "notifications"
+            }
+          }
+        }
+      ],
+      "changeSet": {
+        "id": "SP1 - create table notifications",
+        "author": "juan-para",
+        "comment": "create table notifications",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "notifications",
+              "columns": [
+                {
+                  "column": {
+                    "name": "notification_id",
+                    "type": "INT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "notification_type_id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "subject",
+                    "type": "VARCHAR(100)",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "body",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "email_template_id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "DATETIME",
+                    "constraints": {
+                      "nullable": false,
+                      "defaultValue": "CURRENT_TIMESTAMP"
+                    },
+                    "value": {
+                      "dateValue": "yyyy-MM-dd HH:mm:ss"
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "updated_at",
+                    "type": "DATETIME",
+                    "constraints": {
+                      "nullable": true
+                    },
+                    "value": {
+                      "dateValue": "yyyy-MM-dd HH:mm:ss"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": [
+                "user_id"
+              ],
+              "baseTableName": "notifications",
+              "constraintName": "fk_notifications_users",
+              "referencedColumnNames": [
+                "user_id"
+              ],
+              "referencedTableName": "users"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": [
+                "email_template_id"
+              ],
+              "baseTableName": "notifications",
+              "constraintName": "fk_notifications_email_templates",
+              "referencedColumnNames": [
+                "email_template_id"
+              ],
+              "referencedTableName": "email_templates"
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": [
+                "notification_type_id"
+              ],
+              "baseTableName": "notifications",
+              "constraintName": "fk_notifications_notification_types",
+              "referencedColumnNames": [
+                "notification_type_id"
+              ],
+              "referencedTableName": "notification_types"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

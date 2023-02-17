@@ -1,0 +1,81 @@
+{
+  "databaseChangeLog": [
+    {
+      "preConditions": [
+        {
+          "not": {
+            "tableExists": {
+              "tableName": "email_templates"
+            }
+          }
+        }
+      ],
+      "changeSet": {
+        "id": "SP1 - create table email_templates",
+        "author": "juan-para",
+        "comment": "create table email_templates",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "email_templates",
+              "columns": [
+                {
+                  "column": {
+                    "name": "email_template_id",
+                    "type": "INT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "template_name",
+                    "type": "VARCHAR(100)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "template_subject",
+                    "type": "VARCHAR(100)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "template_body",
+                    "type": "TEXT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "DATETIME",
+                    "constraints": {
+                      "nullable": false,
+                      "defaultValue": "CURRENT_TIMESTAMP"
+                    },
+                    "value": {
+                      "dateValue": "yyyy-MM-dd HH:mm:ss"
+                    }
+                  }
+                }
+              ]
+            },
+            "comment": "create table email_templates"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,20 +1,74 @@
 {
   "databaseChangeLog": [
     {
-      "comment": "Creation of the Person table"
+      "comment": "Creation of the user_categories table"
     },
     {
       "include": {
-        "file": "14022023-CreateTable-Person.json",
+        "file": "20230214-CreateTable-user_categories.json",
         "relativeToChangelogFile": true
       }
     },
     {
-      "comment": "Creation of the Car table"
+      "comment": "Creation of the users table"
     },
     {
       "include": {
-        "file": "14022023-CreateTable-Car.json",
+        "file": "20230214-CreateTable-users.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "comment": "Creation of the categories table"
+    },
+    {
+      "include": {
+        "file": "20230216-CreateTable-categories.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "comment": "Creation of the expenses table"
+    },
+    {
+      "include": {
+        "file": "20230216-CreateTable-expenses.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "comment": "Creation of the payment_history table"
+    },
+    {
+      "include": {
+        "file": "20230216-CreateTable-payment_history.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "comment": "Creation of the email_templates table"
+    },
+    {
+      "include": {
+        "file": "20230216-CreateTable-email_templates.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "comment": "Creation of the notification_types table"
+    },
+    {
+      "include": {
+        "file": "20230216-CreateTable-notification_types.json",
+        "relativeToChangelogFile": true
+      }
+    },
+    {
+      "comment": "Creation of the notifications table"
+    },
+    {
+      "include": {
+        "file": "20230216-CreateTable-notifications.json",
         "relativeToChangelogFile": true
       }
     }

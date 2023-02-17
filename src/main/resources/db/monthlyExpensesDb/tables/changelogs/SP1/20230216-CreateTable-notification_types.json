@@ -1,0 +1,49 @@
+{
+  "databaseChangeLog": [
+    {
+      "preConditions": [
+        {
+          "not": {
+            "tableExists": {
+              "tableName": "notification_types"
+            }
+          }
+        }
+      ],
+      "changeSet": {
+        "id": "SP1 - create table notification_types",
+        "author": "juan-para",
+        "comment": "create table notification_types",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "notification_types",
+              "columns": [
+                {
+                  "column": {
+                    "name": "notification_type_id",
+                    "type": "INT",
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "notification_type_name",
+                    "type": "VARCHAR(50)",
+                    "constraints": {
+                      "unique": true,
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

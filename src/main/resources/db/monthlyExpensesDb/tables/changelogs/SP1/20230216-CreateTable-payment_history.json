@@ -1,0 +1,92 @@
+{
+  "databaseChangeLog": [
+    {
+      "preConditions": [
+        {
+          "not": {
+            "tableExists": {
+              "tableName": "payment_history"
+            }
+          }
+        }
+      ],
+      "changeSet": {
+        "id": "SP1 - create table payment_history",
+        "author": "juan-para",
+        "comment": "create table payment_history",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "payment_history",
+              "columns": [
+                {
+                  "column": {
+                    "name": "payment_history_id",
+                    "type": "BIGINT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "payment_date",
+                    "type": "DATE",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "amount",
+                    "type": "DECIMAL(15, 2)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "constraints": {
+                      "nullable": false,
+                      "defaultValue": "CURRENT_TIMESTAMP"
+                    }
+                  }
+                }
+              ],
+              "constraints": [
+                {
+                  "foreignKeyConstraint": {
+                    "baseColumnNames": [
+                      "user_id"
+                    ],
+                    "baseTableName": "payment_history",
+                    "referencedColumnNames": [
+                      "user_id"
+                    ],
+                    "referencedTableName": "users",
+                    "constraintName": "fk_payment_history_users"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

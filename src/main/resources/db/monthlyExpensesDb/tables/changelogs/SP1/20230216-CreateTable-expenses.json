@@ -1,0 +1,108 @@
+{
+  "databaseChangeLog": [
+    {
+      "preConditions": [
+        {
+          "not": {
+            "tableExists": {
+              "tableName": "expenses"
+            }
+          }
+        }
+      ],
+      "changeSet": {
+        "id": "SP1 - create table expenses",
+        "author": "juan-para",
+        "comment": "create table expenses",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "expenses",
+              "columns": [
+                {
+                  "column": {
+                    "name": "expense_id",
+                    "type": "INT",
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "user_id",
+                    "type": "INT",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "amount",
+                    "type": "DECIMAL(10, 2)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "description",
+                    "type": "VARCHAR(255)",
+                    "constraints": {
+                      "nullable": true
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "date",
+                    "type": "DATE",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_at",
+                    "type": "DATETIME",
+                    "constraints": {
+                      "nullable": false,
+                      "defaultValue": "NOW()"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "addForeignKeyConstraint": {
+              "baseColumnNames": [
+                "user_id"
+              ],
+              "baseTableName": "expenses",
+              "constraintName": "fk_expenses_users",
+              "referencedColumnNames": [
+                "user_id"
+              ],
+              "referencedTableName": "users"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
