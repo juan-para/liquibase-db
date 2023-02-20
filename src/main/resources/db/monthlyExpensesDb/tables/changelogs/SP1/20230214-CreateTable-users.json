@@ -86,16 +86,6 @@
                     }
                   }
                 }
-              ],
-              // TODO: chek this index with the table payment_history
-              "indexes": [
-                {
-                  "index": {
-                    "name": "idx_user_id",
-                    "unique": true,
-                    "columnNames": "user_id"
-                  }
-                }
               ]
             }
           },
