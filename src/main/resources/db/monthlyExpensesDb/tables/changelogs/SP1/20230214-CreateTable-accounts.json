@@ -2,26 +2,26 @@
   "databaseChangeLog": [
     {
       "changeSet": {
-        "id": "SP1 - create table users",
+        "id": "SP1 - create table accounts",
         "author": "juan-para",
-        "comment": "create table users",
+        "comment": "create table accounts",
         "changes": [
           {
             "preconditions": [
               {
                 "not": {
                   "tableExists": {
-                    "tableName": "users"
+                    "tableName": "accounts"
                   }
                 }
               }
             ],
             "createTable": {
-              "tableName": "users",
+              "tableName": "accounts",
               "columns": [
                 {
                   "column": {
-                    "name": "user_id",
+                    "name": "account_id",
                     "type": "INT",
                     "autoIncrement": true,
                     "constraints": {
@@ -32,7 +32,7 @@
                 },
                 {
                   "column": {
-                    "name": "name",
+                    "name": "password",
                     "type": "varchar(100)",
                     "constraints": {
                       "nullable": false
@@ -41,8 +41,9 @@
                 },
                 {
                   "column": {
-                    "name": "email",
-                    "type": "varchar(100)",
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "defaultValueComputed": "CURRENT_TIMESTAMP",
                     "constraints": {
                       "nullable": false
                     }
@@ -50,36 +51,12 @@
                 },
                 {
                   "column": {
-                    "name": "phone_number",
-                    "type": "varchar(20)",
+                    "name": "updated_at",
+                    "type": "TIMESTAMP",
+                    "defaultValueComputed": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
                     "constraints": {
-                      "nullable": true
+                      "nullable": false
                     }
-                  }
-                },
-                {
-                  "column": {
-                    "name": "account_id",
-                    "type": "INT",
-                    "constraints": {
-                      "unique": true,
-                      "nullable": true
-                    }
-                  }
-                }
-              ],
-              "constraints": [
-                {
-                  "addForeignKeyConstraint": {
-                    "baseColumnNames": [
-                      "account_id"
-                    ],
-                    "baseTableName": "users",
-                    "constraintName": "fk_users_accounts",
-                    "referencedColumnNames": [
-                      "account_id"
-                    ],
-                    "referencedTableName": "accounts"
                   }
                 }
               ]

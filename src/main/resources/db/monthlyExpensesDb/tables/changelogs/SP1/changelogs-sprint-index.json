@@ -1,11 +1,11 @@
 {
   "databaseChangeLog": [
     {
-      "comment": "Creation of the user_categories table"
+      "comment": "Creation of the accounts table"
     },
     {
       "include": {
-        "file": "20230214-CreateTable-user_categories.json",
+        "file": "20230214-CreateTable-accounts.json",
         "relativeToChangelogFile": true
       }
     },
