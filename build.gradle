@@ -3,6 +3,8 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.2'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id 'application'
+	id 'org.liquibase.gradle' version '2.0.4'
 }
 
 group = 'com.monthly-expenses'
@@ -28,6 +30,32 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+task stopDockerCompose {
+	doLast {
+		// Stop docker container and delete volume
+		exec {
+			commandLine 'docker-compose', 'down', '--remove-orphans'
+			workingDir = file('docker') // Directorio donde se encuentra tu docker-compose.yml
+		}
+	}
+}
+
+task startDockerCompose {
+	dependsOn stopDockerCompose
+	doLast {
+		// Start background docker container and volume
+		exec {
+			commandLine 'docker-compose', 'up', '-d'
+			workingDir = file('docker') // Directorio donde se encuentra tu docker-compose.yml
+		}
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+application {
+	// Define el script de inicio de la aplicación
+	mainClassName = 'com.monthly_expenses.Application'
 }

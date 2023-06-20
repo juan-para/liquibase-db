@@ -1,0 +1,4 @@
+CREATE USER 'user123'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'user123'@'%';
+
+CREATE DATABASE IF NOT EXISTS monthlyExpensesDb
