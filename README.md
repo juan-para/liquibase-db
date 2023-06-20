@@ -17,6 +17,7 @@ sudo -E ./gradlew startDockerCompose
 liquibase --logLevel=info --changeLogFile=./src/main/resources/db/monthlyExpensesDb/changelogs-index.json update
 ```
 This will apply all the database changes defined in the **changelogs-index.json** file
+
 5.  To stop the database, execute the following Gradle command:
 ```gradle
 sudo -E ./gradlew stopDockerCompose
