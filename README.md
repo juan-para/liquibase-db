@@ -8,18 +8,18 @@ git clone git@github.com:yourusername/liquidbase-db.git
 ```
 2.  Install Liquibase (if not already installed).
 3.  To start the database, execute the following Gradle command:
-```gradle
+```bash
 sudo -E ./gradlew startDockerCompose
 ```
 4.  Run Liquibase with the following command to apply all changes in the **changelogs-index.json** file:
 
-```java
+```bash
 liquibase --logLevel=info --changeLogFile=./src/main/resources/db/monthlyExpensesDb/changelogs-index.json update
 ```
 This will apply all the database changes defined in the **changelogs-index.json** file
 
 5.  To stop the database, execute the following Gradle command:
-```gradle
+```bash
 sudo -E ./gradlew stopDockerCompose
 ```
 
@@ -30,6 +30,6 @@ For example, if you have a new table to add to the database, you would create a 
 
 The **changelogs-index.json** file is located at **resources/db/monthlyExpensesDb/changelogs-index.json** and includes all of the **changelogs-sprint-index.json** files in the correct order.
 To apply all the changes, use the following command:
-```java
+```bash
 liquibase --logLevel=info --changeLogFile=./src/main/resources/db/monthlyExpensesDb/changelogs-index.json update
 ```
